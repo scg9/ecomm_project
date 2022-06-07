@@ -98,7 +98,8 @@ app.listen(configs.PORT, async () => {
     
     // console.log(getproducts);
     //await db.sequelize.sync({force:true});
+    if(process.env.SYNC) {
+        await db.sequelize.sync({ force: true });
+    }
 });
-if(process.env.SYNC) {
-    await db.sequelize.sync({ force: true });
-}
+
